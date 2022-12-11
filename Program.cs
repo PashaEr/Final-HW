@@ -4,27 +4,33 @@
 //лучше обойтись исключительно массивами.
 
 
-string[] array1 = new string[5] {"789", "23", "print", "level", "res"};
-string[] array2 = new string[array1.Length];
-void SecondArray(string[] array1, string[] array2)
+Console.Write("Задайте колличество элементов массива? ");
+int size = Convert.ToInt32(Console.ReadLine());
+
+string[] arrayStrings = new string[size];
+    int len = 3;
+    int pos = 0;
+    for (int i = 0; i < size; i++)
 {
-    int count = 0;
-    for (int i = 0; i < array1.Length; i++)
+ Console.WriteLine($"Введите {i+1}-й элемент: ");
+    string element = Convert.ToString(Console.ReadLine());
+    if (element.Length <= len)
     {
-    if(array1[i].Length <= 3)
-        {
-        array2[count] = array1[i];
-        count++;
-        }
+        arrayStrings[pos] = element;
+        pos++;
     }
 }
+
+
 void PrintArray(string[] array)
 {
     for (int i = 0; i < array.Length; i++)
     {
-        Console.Write($"{array[i]} ");
+        Console.Write( array[i] + " ");
     }
     Console.WriteLine();
 }
-SecondArray(array1, array2);
-PrintArray(array2);
+Console.WriteLine();
+
+PrintArray(arrayStrings);
+
